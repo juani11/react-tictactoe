@@ -1,0 +1,14 @@
+main {
+    /* CON GRID */
+    display: grid;
+    place-items: center;
+    grid-template-rows: 25% 50% 15%;
+    min-height: 100vh;
+
+    /* CON FLEX */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; */
+}
