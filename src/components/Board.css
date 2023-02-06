@@ -1,0 +1,8 @@
+.board {
+    display: grid;
+    align-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: 25% 50% 25%; */
+    /* width: 400px; */
+    /* min-height: 500px; */
+}

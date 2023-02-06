@@ -1,0 +1,9 @@
+.square {
+    min-height: calc((50vh / 3));
+    min-width: calc((50vh / 3));
+    border: 2px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vw;
+}

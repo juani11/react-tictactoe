@@ -1,0 +1,12 @@
+.resetGameButton {
+    padding: 10px 20px;
+    border: 1px solid white;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: white;
+}
+
+.resetGameButton:hover {
+    /* color: black; */
+    border: 2px solid white;
+}
