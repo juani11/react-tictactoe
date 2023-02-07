@@ -1,0 +1,26 @@
+.gameRecord {
+    padding: 20px;
+    justify-self: start;
+    align-self: start;
+    width: 90%;
+}
+
+.gameRecord-title {
+    text-align: center;
+}
+
+.gameRecord-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+}
+
+.gameRecord-grid-header {
+    border-bottom: 2px solid;
+    width: 100%;
+    text-align: center;
+}
+
+.gameRecord-grid-content {
+    font-size: 4vw;
+}

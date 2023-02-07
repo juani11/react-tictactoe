@@ -1,6 +1,7 @@
 import { WIN_COMBINATIONS } from "../constants/constants";
 
 const thereIsAWinner = (board) => {
+    //Si hay 5 jugadas como minimo, comprobar si hay ganador
     if (board.filter((elem) => elem !== null).length < 5) return false;
 
     const result = WIN_COMBINATIONS.some((combination) => {

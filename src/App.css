@@ -2,7 +2,8 @@ main {
     /* CON GRID */
     display: grid;
     place-items: center;
-    grid-template-rows: 25% 50% 15%;
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-rows: 20% 70%; */
     min-height: 100vh;
 
     /* CON FLEX */
@@ -11,4 +12,8 @@ main {
     justify-content: center;
     align-items: center;
     min-height: 100vh; */
+}
+
+.title {
+    grid-column: 1/-1;
 }

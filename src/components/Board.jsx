@@ -9,7 +9,7 @@ import "./Board.css";
 
 const boardInitialState = Array(9).fill(null);
 
-const Board = () => {
+const Board = ({ recordResult }) => {
     const [board, setBoard] = useState(boardInitialState);
     const [turn, setTurn] = useState(TURNS.O);
     const [winner, setWinner] = useState(null);
@@ -28,12 +28,21 @@ const Board = () => {
     const handleClickSquare = (index) => {
         if (board[index] || winner) return;
 
-        //Si hay 5 jugadas como minimo, comprobar si hay ganador
-
         //Actualizo el board
         const newBoard = [...board];
         newBoard[index] = turn;
+
         setBoard(newBoard);
+
+        const { gameIsOver, winner: existWinner } = checkGameIsOver(newBoard);
+
+        if (gameIsOver) {
+            if (existWinner) confetti();
+            setWinner(existWinner);
+            recordResult(existWinner, turn);
+        } else {
+            nextTurn();
+        }
     };
 
     const resetGame = () => {
@@ -45,22 +54,15 @@ const Board = () => {
         console.log("Re render Board!", { board, turn });
     });
 
-    useEffect(() => {
-        //Comprobar si hay ganador
-        console.log("Se ejecuta efecto!.");
-
-        const { gameIsOver, winner } = checkGameIsOver(board);
-
-        if (gameIsOver) {
-            if (winner) confetti();
-            setWinner(winner);
-        } else {
-            nextTurn();
-        }
-    }, [board]);
-
     return (
-        <>
+        <section
+            style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+        >
             <div className='board' id='board'>
                 {board.map((value, index) => (
                     <Square
@@ -73,7 +75,7 @@ const Board = () => {
             </div>
 
             <GameInfo winner={winner} turn={turn} resetGame={resetGame} />
-        </>
+        </section>
     );
 };
 
